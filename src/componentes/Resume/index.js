@@ -10,9 +10,9 @@ import {
 const Resume = () => {
     return (
         <C.Container> 
-            <ResumeItem title="Entradas" Icon={BsFillArrowUpCircleFill}  />
-            <ResumeItem title="Saídas" Icon={BsFillArrowDownCircleFill} />
-            <ResumeItem title="Total" Icon={BsCurrencyDollar} />
+            <ResumeItem title="Entradas" Icon={BsFillArrowUpCircleFill} value="100" />
+            <ResumeItem title="Saídas" Icon={BsFillArrowDownCircleFill} value="100" />
+            <ResumeItem title="Total" Icon={BsCurrencyDollar} value="200" />
         </C.Container>
     )
 }
