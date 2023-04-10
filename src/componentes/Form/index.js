@@ -6,6 +6,8 @@ const Form = () => {
     const[amout,setAmout] = useState("")
     const[isExpense,setExpense] = useState(false)
 
+    const generateID =  () => Math.round(Math.random()* 1000)
+
     const handleSave = () => {
         if(!desc || amout) {
             alert("Informe a descriçao e o valor!");
@@ -22,7 +24,7 @@ const Form = () => {
             <C.Container>
                 <C.InputContent>
                     <C.Label>Descriçåo</C.Label>
-                    <C.Input value={desc} onChange={(e) => setDesc(e.tardet.value)} />
+                    <C.Input value={desc} onChange={(e) => setDesc(e.target.value)} />
                 </C.InputContent>
                 <C.InputContent>
                     <C.Label>Valor</C.Label>
@@ -49,6 +51,7 @@ const Form = () => {
                     />
                     <C.Label htmlFor="rExpense">Saida</C.Label>
                 </C.RadioGroup>
+                <C.Button onClick={handleSave}>ADICIONAR</C.Button>
             </C.Container>
         </>
     )

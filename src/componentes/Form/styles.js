@@ -38,13 +38,14 @@ export const RadioGroup = styled.div `
     
     input {
         margin-left: 20px;
+        margin-rigth: 5px;
         accent-color: black;
         margin-top: 0;
     }
 `;
 
 export const Button = styled.div `
-    padding: 5px 10px;
+    padding: 15px 30px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
