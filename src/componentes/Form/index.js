@@ -1,21 +1,34 @@
 import React, { useState } from "react";
 import * as C from "./styles";
+import Grid from "../Grid";
 
-const Form = () => {
+const Form = ({handleAdd, transactionsList, setTransactionsList}) => {
     const [desc,setDesc] = useState("")
-    const[amout,setAmout] = useState("")
+    const[amount,setAmount] = useState("")
     const[isExpense,setExpense] = useState(false)
 
-    const generateID =  () => Math.round(Math.random()* 1000)
+    const generateID =  () => Math.round(Math.random() * 1000)
 
     const handleSave = () => {
-        if(!desc || amout) {
+        if(!desc || !amount) {
             alert("Informe a descriçao e o valor!");
             return;
-        } else if(amout < 1) {
+        } else if(amount < 1) {
             alert("O valor tem que ser positivo!")
             return;
         }
+
+        const transaction = {
+            id: generateID(),
+            desc: desc,
+            amount: amount,
+            expense: isExpense
+        };
+
+        handleAdd(transaction);
+
+        setDesc("")
+        setAmount("")
     };
 
 
@@ -29,9 +42,9 @@ const Form = () => {
                 <C.InputContent>
                     <C.Label>Valor</C.Label>
                     <C.Input
-                        value={amout}
+                        value={amount}
                         type="number"
-                        onChange={(e) => setAmout(e.target.value)}
+                        onChange={(e) => setAmount(e.target.value)}
                     />
                 </C.InputContent>
                 <C.RadioGroup>
@@ -53,6 +66,7 @@ const Form = () => {
                 </C.RadioGroup>
                 <C.Button onClick={handleSave}>ADICIONAR</C.Button>
             </C.Container>
+            <Grid itens={transactionsList} setItens={setTransactionsList}/>
         </>
     )
 }
